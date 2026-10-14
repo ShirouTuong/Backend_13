@@ -1,0 +1,33 @@
+package com.codegym.dao;
+
+import com.codegym.model.User;
+import java.sql.SQLException;
+import java.util.List;
+
+public interface IUserDAO {
+    public void insertUser(User user) throws SQLException;
+
+    public User selectUser(int id);
+
+    public List<User> selectAllUsers();
+
+    public boolean deleteUser(int id) throws SQLException;
+
+    public boolean updateUser(User user) throws SQLException;
+
+    public User getUserById(int id);
+
+    public void insertUserStore(User user) throws SQLException;
+
+    public void addUserTransaction(User user, int[] permissionIds) throws SQLException;
+
+    public List<String> getUserPermissions(int userId);
+
+    // Phương thức thực thi không dùng Transaction (Bài TH3)
+    public void insertUpdateWithoutTransaction();
+
+    // Bước 1: Bổ sung phương thức thực thi có dùng Transaction (Bài TH4)
+    public void insertUpdateUseTransaction();
+
+    public void insertUpdateUseTransaction(boolean fixBug);
+}
